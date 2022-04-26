@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.carousell.common.DataStore;
+import com.carousell.utils.StringUtils;
 
 public interface Command {
 
@@ -15,7 +16,7 @@ public interface Command {
         List<String> list = new ArrayList<String>();
         Matcher m = Pattern.compile("[^\\s\"']+|\"[^\"]*\"|'[^']*'").matcher(input); //([^\"]\\S*|\".+?\")\\s*
         while (m.find())
-            list.add(m.group());
+            list.add(StringUtils.unQuote(m.group()));
 
         return list;    
     }

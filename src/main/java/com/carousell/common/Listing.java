@@ -7,7 +7,7 @@ public class Listing {
     private String title;
     private String desc;
     private String username;
-    private double price;
+    private Double price;
     private Date createdTime;
     private String category;
     private String userName;
@@ -44,11 +44,11 @@ public class Listing {
         this.username = username;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

@@ -40,7 +40,7 @@ public class App {
         Console console = System.console();
         boolean exit = false;
         do {
-            String inputCmdLine = console.readLine(" »» ");
+            String inputCmdLine = console.readLine("# ");
             if (!"EXIT".equalsIgnoreCase(inputCmdLine)) {
                 try {
                     String className = app.config.getProperty(inputCmdLine.split(" ")[0].toUpperCase());

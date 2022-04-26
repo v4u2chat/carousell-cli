@@ -10,6 +10,7 @@ public class CreateListingCommand implements Command{
 
     @Override
     public String runCmd(String input, String... additionalParams) {
+        
         List<String> cmdArgs = parseCmd(input);
         Listing listing = new Listing();
         listing.setUserName(cmdArgs.get(1));
@@ -21,5 +22,7 @@ public class CreateListingCommand implements Command{
 
         return dataStore.addListing(listing, cmdArgs.get(1), cmdArgs.get(5));
     }
+
+    
     
 }
