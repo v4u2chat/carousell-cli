@@ -13,7 +13,7 @@ public interface Command {
     DataStore dataStore = new DataStore();
 
     default List<String> parseCmd(String input){
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         Matcher m = Pattern.compile("[^\\s\"']+|\"[^\"]*\"|'[^']*'").matcher(input); //([^\"]\\S*|\".+?\")\\s*
         while (m.find())
             list.add(StringUtils.unQuote(m.group()));

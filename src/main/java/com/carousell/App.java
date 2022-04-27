@@ -43,17 +43,10 @@ public class App {
             String inputCmdLine = console.readLine("# ");
             if (!"EXIT".equalsIgnoreCase(inputCmdLine)) {
                 try {
-                    String className = app.config.getProperty(inputCmdLine.split(" ")[0].toUpperCase());
-                    if (className != null) {
-                        Class clazz = Class.forName(className);
-                        Command commandClazz = (Command) clazz.newInstance();
-                        System.out.println(commandClazz.runCmd(inputCmdLine, new String[0])); 
-                        System.out.println();
-                    } else {
-                        System.out.println("Invalid Command. Please try again with correct syntax!");
-                    }
-
-                } catch (Exception e) {
+                    String response = app.runCommand(inputCmdLine);
+                    console.printf(response);
+                    console.printf("\n");
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
                     LOGGER.log(Level.SEVERE, "Unable to load the mapping ", e);
                 }
             } else {
@@ -61,6 +54,18 @@ public class App {
             }
 
         } while (!exit);
+    }
+
+    public String runCommand(String inputCmdLine) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+        String className = this.config.getProperty(inputCmdLine.split(" ")[0].toUpperCase());
+        if (className != null) {
+            Class<?> clazz = Class.forName(className); //<com.carousell.commands.Command>
+            Command commandClazz = (Command) clazz.newInstance();
+            return commandClazz.runCmd(inputCmdLine);
+            
+        } else {
+            return "Invalid Command. Please try again with correct syntax!";
+        }
     }
 
 }
