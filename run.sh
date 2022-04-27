@@ -1,0 +1,1 @@
+java -jar target/carousell-cli-app.jar

@@ -25,7 +25,8 @@ Carousell is a marketplace platform which allows users to ‘buy’ and ‘sell�
 ### Build and Run instructions : 
 
 Build and Package
-
+Run either of the following commands
+* ``` sh build.sh ```
 * ```mvn clean package```
 
 Sample output looks like this
@@ -37,7 +38,7 @@ Sample output looks like this
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ cli-app ---
-[INFO] Deleting /Users/v4u2chat/Dev/carousell-cli/target
+[INFO] Deleting /Users/<<username>>/Dev/carousell-cli/target
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ cli-app ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -48,9 +49,9 @@ Sample output looks like this
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ cli-app ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 13 source files to /Users/v4u2chat/Dev/carousell-cli/target/classes
-[INFO] /Users/v4u2chat/Dev/carousell-cli/src/main/java/com/carousell/App.java: /Users/v4u2chat/Dev/carousell-cli/src/main/java/com/carousell/App.java uses or overrides a deprecated API.
-[INFO] /Users/v4u2chat/Dev/carousell-cli/src/main/java/com/carousell/App.java: Recompile with -Xlint:deprecation for details.
+[INFO] Compiling 13 source files to /Users/<<username>>/Dev/carousell-cli/target/classes
+[INFO] /Users/<<username>>/Dev/carousell-cli/src/main/java/com/carousell/App.java: /Users/<<username>>/Dev/carousell-cli/src/main/java/com/carousell/App.java uses or overrides a deprecated API.
+[INFO] /Users/<<username>>/Dev/carousell-cli/src/main/java/com/carousell/App.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ cli-app ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -58,7 +59,7 @@ Sample output looks like this
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ cli-app ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 1 source file to /Users/v4u2chat/Dev/carousell-cli/target/test-classes
+[INFO] Compiling 1 source file to /Users/<<username>>/Dev/carousell-cli/target/test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.1:test (default-test) @ cli-app ---
 [INFO] 
@@ -178,7 +179,7 @@ Test Case Actual 	 : Error - unknown user
 [INFO] 
 [INFO] 
 [INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ cli-app ---
-[INFO] Building jar: /Users/v4u2chat/Dev/carousell-cli/target/carousell-cli-app.jar
+[INFO] Building jar: /Users/<<username>>/Dev/carousell-cli/target/carousell-cli-app.jar
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
@@ -188,10 +189,15 @@ Test Case Actual 	 : Error - unknown user
 
 ```
 
-Run JAR using following command to give inputs
+Run either of the following commands
+- Run run.sh file
+  * ``` sh run.sh ```
 
-* ```java -jar target/carousell-cli-app.jar```
+- Run JAR using following command to give inputs
+  * ```java -jar target/carousell-cli-app.jar```
 
+- Enter 'exit' command to quit from cli
 
 ### Note : 
-  Make sure to use Java > 1.8 and Maven 3.6.X
+  - Make sure to use Java > 1.8 and Maven 3.6.X
+  
