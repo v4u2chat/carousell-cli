@@ -20,11 +20,13 @@ Carousell is a marketplace platform which allows users to ‘buy’ and ‘sell�
   - Groupings of listings of the same "category". E.g. Electronics, Fashion etc
   - Category reads can be sorted on Price or creation time.
 
-
+### Environment : 
+- #### Java 1.8 
+- #### Maven 3.6.x
 
 ### Build and Run instructions : 
 
-To Build and Package run either of the following commands
+To Build and Package, execute either of the following commands on terminal
 * ``` sh build.sh ```
 * ```mvn clean package```
 
@@ -197,6 +199,5 @@ Run either of the following commands
 
 - Enter 'exit' command to quit from cli
 
-### Note : 
-  - Make sure to use Java > 1.8 and Maven 3.6.X
+
   
