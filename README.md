@@ -24,8 +24,7 @@ Carousell is a marketplace platform which allows users to ‘buy’ and ‘sell�
 
 ### Build and Run instructions : 
 
-Build and Package
-Run either of the following commands
+To Build and Package run either of the following commands
 * ``` sh build.sh ```
 * ```mvn clean package```
 
