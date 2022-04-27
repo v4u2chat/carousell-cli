@@ -28,9 +28,169 @@ Build and Package
 
 * ```mvn clean package```
 
+Sample output looks like this
+```log
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.carousell:cli-app >------------------------
+[INFO] Building cli-app 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ cli-app ---
+[INFO] Deleting /Users/v4u2chat/Dev/carousell-cli/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ cli-app ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ cli-app ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /Users/v4u2chat/Dev/carousell-cli/target/classes
+[INFO] /Users/v4u2chat/Dev/carousell-cli/src/main/java/com/carousell/App.java: /Users/v4u2chat/Dev/carousell-cli/src/main/java/com/carousell/App.java uses or overrides a deprecated API.
+[INFO] /Users/v4u2chat/Dev/carousell-cli/src/main/java/com/carousell/App.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ cli-app ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ cli-app ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /Users/v4u2chat/Dev/carousell-cli/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.1:test (default-test) @ cli-app ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.carousell.AppTest
+# REGISTER user1
+Command Response 	:
+Success
+Test Case Expected 	 : Success
+Test Case Actual 	 : Success
+===========================================================================
+# CREATE_LISTING user1 'Phone model 8' 'Black color, brand new' 1000 'Electronics'
+Command Response 	:
+100001
+Test Case Expected 	 : 100001
+Test Case Actual 	 : 100001
+===========================================================================
+# GET_LISTING user1 100001
+Command Response 	:
+Phone model 8|Black color, brand new|1000.0|Wed Apr 27 13:45:49 IST 2022|Electronics|user1
+Test Case Expected 	 : Phone model 8
+Test Case Actual 	 : Phone model 8
+===========================================================================
+# CREATE_LISTING user1 'Black shoes' 'Training shoes' 100 'Sports'
+Command Response 	:
+100002
+Test Case Expected 	 : 100002
+Test Case Actual 	 : 100002
+===========================================================================
+# REGISTER user2
+Command Response 	:
+Success
+Test Case Expected 	 : Success
+Test Case Actual 	 : Success
+===========================================================================
+# REGISTER user2
+Command Response 	:
+Error - user already existing
+Test Case Expected 	 : Error - user already existing
+Test Case Actual 	 : Error - user already existing
+===========================================================================
+# CREATE_LISTING user2 'T-shirt' 'White color' 20 'Sports'
+Command Response 	:
+100003
+Test Case Expected 	 : 100003
+Test Case Actual 	 : 100003
+===========================================================================
+# GET_LISTING user1 100003
+Command Response 	:
+T-shirt|White color|20.0|Wed Apr 27 13:45:49 IST 2022|Sports|user2
+Test Case Expected 	 : T-shirt
+Test Case Actual 	 : T-shirt
+===========================================================================
+# GET_CATEGORY user1 'Fashion' sort_time asc
+Command Response 	:
+Error - category not found
+Test Case Expected 	 : Error - category not found
+Test Case Actual 	 : Error - category not found
+===========================================================================
+# GET_CATEGORY user1 'Sports' sort_time dsc
+Command Response 	:
+T-shirt|White color|20.0|Wed Apr 27 13:45:49 IST 2022|Sports|user2
+Black shoes|Training shoes|100.0|Wed Apr 27 13:45:49 IST 2022|Sports|user1
+Test Case Expected 	 : T-shirt|White color|
+Test Case Actual 	 : T-shirt|White color|
+===========================================================================
+# GET_CATEGORY user1 'Sports' sort_price dsc
+Command Response 	:
+Black shoes|Training shoes|100.0|Wed Apr 27 13:45:49 IST 2022|Sports|user1
+T-shirt|White color|20.0|Wed Apr 27 13:45:49 IST 2022|Sports|user2
+Test Case Expected 	 : Black shoes|Training shoes|100
+Test Case Actual 	 : Black shoes|Training shoes|100
+===========================================================================
+# GET_TOP_CATEGORY user1
+Command Response 	:
+Sports
+Test Case Expected 	 : Sports
+Test Case Actual 	 : Sports
+===========================================================================
+# DELETE_LISTING user1 100003
+Command Response 	:
+Error - listing owner mismatch
+Test Case Expected 	 : Error - listing owner mismatch
+Test Case Actual 	 : Error - listing owner mismatch
+===========================================================================
+# DELETE_LISTING user2 100003
+Command Response 	:
+Success
+Test Case Expected 	 : Success
+Test Case Actual 	 : Success
+===========================================================================
+# GET_TOP_CATEGORY user2
+Command Response 	:
+Sports
+Test Case Expected 	 : Sports
+Test Case Actual 	 : Sports
+===========================================================================
+# DELETE_LISTING user1 100002
+Command Response 	:
+Success
+Test Case Expected 	 : Success
+Test Case Actual 	 : Success
+===========================================================================
+# GET_TOP_CATEGORY user3
+Command Response 	:
+Error - unknown user
+Test Case Expected 	 : Error - unknown user
+Test Case Actual 	 : Error - unknown user
+===========================================================================
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s - in com.carousell.AppTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ cli-app ---
+[INFO] Building jar: /Users/v4u2chat/Dev/carousell-cli/target/carousell-cli-app.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.203 s
+[INFO] Finished at: 2022-04-27T13:45:50+05:30
+[INFO] ------------------------------------------------------------------------
+
+```
+
 Run JAR using following command to give inputs
 
-* ```java -jar target/cli-app-1.0-SNAPSHOT.jar```
+* ```java -jar target/carousell-cli-app.jar```
 
 
 ### Note : 
